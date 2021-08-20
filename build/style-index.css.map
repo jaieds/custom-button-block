@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/style.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;AACF;AAEA;EACE;EACA;AAAF,C","file":"style-index.css","sourcesContent":["@font-face {\n  font-family: Gilbert;\n  src: url( gilbert-color.otf );\n  font-weight: bold;\n}\n\n.wp-block-create-block-gutenpride {\n  font-family: Gilbert;\n  font-size: 64px;\n}\n"],"sourceRoot":""}
