@@ -4,6 +4,6 @@ import {Button} from '@wordpress/components';
 
 export default function save({attributes}) {
 	return <div {...useBlockProps.save()}>
-		<Button>{attributes.message}</Button>
+		<Button>{attributes.btnText}</Button>
 	</div>;
 }

@@ -5,9 +5,12 @@
   !*** ./src/style.scss ***!
   \************************/
 /*! no exports provided */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/file-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Asus\\Local Sites\\custom-wordpress-site\\app\\public\\wp-content\\plugins\\my-block\\src\\gilbert-color.otf'\n    at C:\\Users\\Asus\\Local Sites\\custom-wordpress-site\\app\\public\\wp-content\\plugins\\my-block\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\Users\\Asus\\Local Sites\\custom-wordpress-site\\app\\public\\wp-content\\plugins\\my-block\\node_modules\\webpack\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at Array.<anonymous> (C:\\Users\\Asus\\Local Sites\\custom-wordpress-site\\app\\public\\wp-content\\plugins\\my-block\\node_modules\\webpack\\node_modules\\loader-runner\\lib\\LoaderRunner.js:203:19)\n    at Storage.finished (C:\\Users\\Asus\\Local Sites\\custom-wordpress-site\\app\\public\\wp-content\\plugins\\my-block\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:55:16)\n    at ReadFileContext.<anonymous> (C:\\Users\\Asus\\Local Sites\\custom-wordpress-site\\app\\public\\wp-content\\plugins\\my-block\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:91:9)\n    at ReadFileContext.callback (C:\\Users\\Asus\\Local Sites\\custom-wordpress-site\\app\\public\\wp-content\\plugins\\my-block\\node_modules\\graceful-fs\\graceful-fs.js:123:16)\n    at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:265:13)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ })
 
@@ -194,43 +197,22 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit({
   attributes,
-  setAttributes,
-  className
+  setAttributes
 }) {
-  const [isEditing, setIsEditing] = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  let timer = null;
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    if (!attributes.message) {
-      setAttributes({
-        message: "Button"
-      });
-    }
+    setAttributes({
+      btnText: "Button"
+    });
   }, [setAttributes]);
-
-  function toggleEditing(event) {
-    setIsEditing(isEditing => !isEditing);
-  }
-
-  function handleKeyPress(event) {
-    if (event.key === "Enter") {
-      setIsEditing(isEditing => !isEditing);
-    }
-  }
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"])(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "my-block"
-  }, isEditing ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
-    onKeyPress: handleKeyPress,
-    onClick: toggleEditing,
-    autoFocus: true,
-    value: attributes.message,
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
+    value: attributes.btnText,
     onChange: val => setAttributes({
-      message: val
-    })
-  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: ".wp-block-create-block-my-block",
-    onClick: toggleEditing
-  }, attributes.message)));
+      btnText: val
+    }),
+    placeholder: attributes.btnText
+  })));
 }
 
 /***/ }),
@@ -329,7 +311,7 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], null, attributes.message));
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], null, attributes.btnText));
 }
 
 /***/ }),
