@@ -1,21 +1,23 @@
-import {
-	useBlockProps,
-	RichText,
-	ColorPalette,
-	InspectorControls
-} from '@wordpress/block-editor';
-import {TextControl, Button} from '@wordpress/components';
-import {useState, useEffect} from '@wordpress/element';
+import {ColorPalette, InspectorControls, RichText, useBlockProps} from '@wordpress/block-editor';
+import {useEffect, useState} from '@wordpress/element';
 import './editor.scss';
 import {__} from '@wordpress/i18n';
+import {PanelBody, RadioControl} from "@wordpress/components";
 
 
 export default function Edit({attributes, setAttributes}) {
+	const [isOpenPanel1, setIsOpenPanel1] = useState(false);
+	const [isOpenPanel2, setIsOpenPanel2] = useState(false);
+
 	useEffect(() => {
 		setAttributes({
 			btnText: "Button",
 			bg_color: {type: 'string', default: '#000000'},
 			text_color: {type: 'string', default: '#ffffff'},
+			align: {
+				type: "string",
+				default: 'left'
+			}
 		});
 	}, [setAttributes]);
 
@@ -27,9 +29,24 @@ export default function Edit({attributes, setAttributes}) {
 		setAttributes({text_color: hexColor});
 	};
 
+	const togglePanel1 = (isOpenPanel1) => setIsOpenPanel1(!isOpenPanel1);
+	const togglePanel2 = (isOpenPanel2) => setIsOpenPanel2(!isOpenPanel2);
+
+
 	return (
-		<div {...useBlockProps()}>
+		<div {...useBlockProps()}
+			 style={{
+				 display: "flex",
+				 justifyContent: attributes.align,
+				 width: '100%',
+			 }}
+		>
 			<InspectorControls key="setting">
+			<PanelBody
+				title="Colors"
+				initialOpen={true}
+				onToggle={togglePanel1}
+			>
 				<fieldset>
 					<legend>{__("Background Color:", "my-block")}</legend>
 					<ColorPalette
@@ -43,9 +60,32 @@ export default function Edit({attributes, setAttributes}) {
 						onChange={onChangeTextColor}
 					/>
 				</fieldset>
+			</PanelBody>
+				<PanelBody
+					title="Align Item"
+					initialOpen={true}
+					onToggle={togglePanel2}
+				>
+					<RadioControl
+						label="Align"
+						help="Choose an alignment."
+						selected={attributes.align}
+						options={[
+							{label: 'left', value: 'flex-start'},
+							{label: 'Center', value: 'center'},
+							{label: 'Right', value: 'flex-end'},
+						]}
+						onChange={(newAlign) => setAttributes({align: newAlign})}
+					/>
+				</PanelBody>
 			</InspectorControls>
+
+
 			<div className="my-block"
-				 style={{backgroundColor: attributes.bg_color}}
+				 style={{
+					 backgroundColor: attributes.bg_color,
+					 width: '100%',
+				 }}
 			>
 				<RichText value={attributes.btnText}
 						  onChange={(val) => setAttributes({btnText: val})}

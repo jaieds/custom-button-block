@@ -3,7 +3,13 @@ import {useBlockProps, RichText} from '@wordpress/block-editor';
 import {Button} from '@wordpress/components';
 
 export default function save({attributes}) {
-	return <div {...useBlockProps.save()}>
+	return <div {...useBlockProps.save()}
+		style={{
+			display: "flex",
+			width: '100%',
+			justifyContent: attributes.align,
+		}}
+	>
 		<Button
 			style={{
 				backgroundColor: attributes.bg_color,
