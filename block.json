@@ -12,5 +12,17 @@
 	"textdomain": "my-block",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"btnText": {
+		  "type": "string",
+		  "default": "Button"
+		},
+		"bg_color": {"type": "string", "default": "#000000"},
+		"text_color": {"type": "string", "default": "#ffffff"},
+		"align": {
+		  "type": "string",
+		  "default": "left"
+		}
+	}
 }

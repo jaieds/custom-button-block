@@ -1,5 +1,5 @@
 import {ColorPalette, InspectorControls, RichText, useBlockProps} from '@wordpress/block-editor';
-import {useEffect, useState} from '@wordpress/element';
+import {useState} from '@wordpress/element';
 import './editor.scss';
 import {__} from '@wordpress/i18n';
 import {PanelBody, RadioControl} from "@wordpress/components";
@@ -8,18 +8,6 @@ import {PanelBody, RadioControl} from "@wordpress/components";
 export default function Edit({attributes, setAttributes}) {
 	const [isOpenPanel1, setIsOpenPanel1] = useState(false);
 	const [isOpenPanel2, setIsOpenPanel2] = useState(false);
-
-	useEffect(() => {
-		setAttributes({
-			btnText: "Button",
-			bg_color: {type: 'string', default: '#000000'},
-			text_color: {type: 'string', default: '#ffffff'},
-			align: {
-				type: "string",
-				default: 'left'
-			}
-		});
-	}, [setAttributes]);
 
 	const onChangeBGColor = (hexColor) => {
 		setAttributes({bg_color: hexColor});

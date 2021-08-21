@@ -238,23 +238,6 @@ function Edit({
 }) {
   const [isOpenPanel1, setIsOpenPanel1] = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
   const [isOpenPanel2, setIsOpenPanel2] = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
-  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
-    setAttributes({
-      btnText: "Button",
-      bg_color: {
-        type: 'string',
-        default: '#000000'
-      },
-      text_color: {
-        type: 'string',
-        default: '#ffffff'
-      },
-      align: {
-        type: "string",
-        default: 'left'
-      }
-    });
-  }, [setAttributes]);
 
   const onChangeBGColor = hexColor => {
     setAttributes({
